@@ -5,5 +5,6 @@ export const  localConfig = {
         'username': 'test',
         'password': 'test'
     },
-    API_SERVER: 'localhost:3000/api/v1'
+    API_SERVER: 'localhost:3000/api/v1',
+    RUN_LOC: 'local'
 }

@@ -1,6 +1,8 @@
 
+
 let localConfig = {
     RUN_ENV: 'development',
+    RUN_LOC: 'local',
     TEST_USER: {
         'username': 'test',
         'password': 'test'
@@ -9,5 +11,14 @@ let localConfig = {
     AUTH_SERVER: 'localhost:3000/oauth/token'
 }
 
-export { localConfig }
+try {
+    localConfig = require('../.env.js').localConfig
+}
+catch (err) {
+    console.log('missing')
+}
+
+let platformConfig = require(`./config/${localConfig.RUN_ENV}/config`).config
+let config = {...localConfig, ...platformConfig}
+export default config
 

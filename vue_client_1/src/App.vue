@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view @failedLogin="signalLogin($event)" @authenticated="signalAuthorized($event)"></router-view>
   </div>
 </template>
 
@@ -9,6 +9,23 @@
 export default {
   name: 'App',
   components: {
+
+  },
+  methods: {
+    signalLogin() {
+      try {
+        this.$router.push('/login')
+      }
+      catch (err) {
+        console.error(err)
+      }
+    },
+    signalAuthorized(event) {
+      console.log('logged in', event)
+      this.$router.push('/').catch (
+              (err) => {console.error(err)}
+      )
+    }
   }
 }
 </script>

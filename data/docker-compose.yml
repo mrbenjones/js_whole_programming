@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  memcached:
+    image: "memcached:latest"
+    ports:
+        - "11211:11211"
+    restart:
+        always 
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6380:6379"
+    volumes:
+      - ../redis/:/data
+    entrypoint: redis-server --appendonly yes
+    restart: always      
+  postgres:
+    image: "postgres:latest"
+    env_file:
+      - database.env     
+    volumes:
+      - ../db-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+  es01:
+    image: "elasticsearch:6.8.7"
+    container_name: wjs-es01
+    environment:
+      - node.name=es01
+      - cluster.name=wjs-docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ../esdata01:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"      
+  kibana:
+    image: "kibana:6.8.7"
+    ports:
+      - "5601:5601"

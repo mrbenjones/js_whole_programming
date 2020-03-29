@@ -1,5 +1,6 @@
 books
-data/redis
-data/db-data
-data/esdata01
+redis
+db-data
+esdata01
+data/testdata.db
 

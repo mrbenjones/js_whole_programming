@@ -3,17 +3,41 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "test": "jest --verbose",
+    "postinstall": "link-module-alias"
+  },
+  "_moduleAliases": {
+    "app": "."
   },
   "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-jest": "^25.2.6",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "elasticsearch": "^16.7.1",
     "express": "~4.16.1",
     "hbs": "^4.1.0",
     "http-errors": "~1.6.3",
+    "jest": "^25.2.4",
+    "jest-config": "^25.2.7",
     "kue": "^0.11.6",
+    "link-module-alias": "^1.2.0",
+    "lodash": "^4.17.15",
     "memcached": "^2.2.2",
     "minimist": ">=1.2.2",
-    "morgan": "~1.9.1"
+    "module-alias": "^2.2.2",
+    "morgan": "~1.9.1",
+    "pg": "^8.0.0",
+    "redis": "^3.0.2"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleNameMapper": {
+      "^app/(.*)$": "<rootDir>/$1",
+      "@util/(.*)$": "<rootDir>/util/$1"
+    }
   }
 }

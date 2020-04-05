@@ -13,7 +13,6 @@ try{
     console.log('using default config')
 }
 
-console.log(config)
 
 module.exports = config
 

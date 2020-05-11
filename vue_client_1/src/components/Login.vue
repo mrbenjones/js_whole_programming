@@ -28,6 +28,7 @@
                             if (s.success) {
                                 this.$emit("authenticated", true)
                             } else {
+                                this.$emit("failedlogin", true)
                                console.log('error?')
                             }
 

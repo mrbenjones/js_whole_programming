@@ -25,7 +25,7 @@
     "jest-config": "^25.2.7",
     "kue": "^0.11.6",
     "link-module-alias": "^1.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "memcached": "^2.2.2",
     "minimist": ">=1.2.2",
     "module-alias": "^2.2.2",

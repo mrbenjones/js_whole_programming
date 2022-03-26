@@ -27,7 +27,7 @@
     "link-module-alias": "^1.2.0",
     "lodash": "^4.17.15",
     "memcached": "^2.2.2",
-    "minimist": ">=1.2.2",
+    "minimist": ">=1.2.6",
     "module-alias": "^2.2.2",
     "morgan": "~1.9.1",
     "pg": "^8.0.0",
